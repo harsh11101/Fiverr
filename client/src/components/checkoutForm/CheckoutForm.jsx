@@ -71,7 +71,9 @@ const CheckoutForm = () => {
     // redirected to the `return_url`.
     if (error.type === "card_error" || error.type === "validation_error") {
       setMessage(error.message);
+      console.log(error);
     } else {
+      console.log(error);
       setMessage("An unexpected error occurred.");
     }
 
@@ -83,6 +85,7 @@ const CheckoutForm = () => {
   };
 
   return (
+    // <div>pay</div>
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
         id="link-authentication-element"

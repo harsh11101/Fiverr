@@ -6,6 +6,7 @@ import Slide from "../../components/slide/Slide";
 import CatCard from "../../components/catCard/CatCard";
 import ProjectCard from "../../components/projectCard/ProjectCard";
 import { cards, projects } from "../../data";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -78,7 +79,7 @@ function Home() {
               />
               <div className="line"></div>
 
-              <span>Digital Marketing</span>
+              <Link to='/gigs?cat=Digital Marketing' className="link"><span>Digital Marketing</span></Link>
             </div>
             <div className="item">
               <img

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Pay.scss";
+import "./Pay.css";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import newRequest from "../../utils/newRequest";
@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
 
 const stripePromise = loadStripe(
-  "pk_test_51BTUDGJAJfZb9HEBwDg86TN1KNprHjkfipXmEDMb0gSCassK5T3ZfxsAbcgKVmAIXF7oZ6ItlZZbXO6idTHE67IM007EwQ4uN3"
+  "pk_test_51NX2vqSB6EL75bG4gHOhO4n4lNCogJhTrIJMSLoOtuat6QbJBeVyd7KhecVtujenTCzFovLUpH22W2nWHsNep3dP008JcB8dtT"
 );
 
 const Pay = () => {
@@ -21,6 +21,7 @@ const Pay = () => {
         const res = await newRequest.post(
           `/orders/create-payment-intent/${id}`
         );
+        console.log("REs: ",res)
         setClientSecret(res.data.clientSecret);
       } catch (err) {
         console.log(err);
@@ -38,12 +39,13 @@ const Pay = () => {
   };
 
   return <div className="pay">
-    {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )}
-  </div>;
+      {clientSecret && (
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )}
+    </div>
+  ;
 };
 
 export default Pay;

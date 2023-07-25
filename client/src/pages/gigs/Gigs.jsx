@@ -45,7 +45,7 @@ function Gigs() {
     <div className="gigs">
       <div className="container">
         <span className="breadcrumbs">Fiverr > {breadcrumb} ></span>
-        <h1>AI Artists</h1>
+        <h1>{breadcrumb.charAt(0).toUpperCase()+breadcrumb.slice(1)}</h1>
         <p>
           Explore the boundaries of art and technology with Liverr's AI artists
         </p>
